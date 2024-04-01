@@ -1,5 +1,7 @@
 // import useState
 import { useState } from "react"
+// import <Link> dari react-router-dom
+import { Link } from "react-router-dom"
 
 export default function NavBar() {
     /**
@@ -15,7 +17,7 @@ export default function NavBar() {
      */
     const links = [
         {
-            to: "#",
+            to: "/",
             name: "Home"
         },
         {
@@ -23,11 +25,11 @@ export default function NavBar() {
             name: "About"
         },
         {
-            to: "#",
-            name: "Gallery"
+            to: "/product",
+            name: "Product"
         },
         {
-            to: "#",
+            to: "/contact",
             name: "Contact"
         }
     ]
@@ -70,7 +72,12 @@ export default function NavBar() {
                      */}
                     {
                         links.map((link, i) => (
-                            <li key={i}><a className="hover:underline text-xl" href={link.to}>{link.name}</a></li>
+                            /**
+                             * <Link to=""> sederhananya adalah versi upgrade dari <a href="">
+                             * Dengan menggunakan <Link to="">, 
+                             * page user tidak akan reload/refresh ketika berpindah dari satu halaman ke halaman lain 
+                             */
+                            <li key={i}><Link className="hover:underline text-xl" to={link.to}>{link.name}</Link></li>
                         ))
                     }
                 </ul>
