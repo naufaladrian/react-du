@@ -9,6 +9,9 @@ import Dashboard from "./pages/Dashboard"
 import Contact from "./pages/Contact"
 import ProductDetail from "./pages/ProductDetail"
 import Product from "./pages/Product"
+import DataUser from "./pages/DataUser"
+import AddUser from "./pages/AddUser"
+import EditUser from "./pages/EditUser"
 
 
 
@@ -47,6 +50,12 @@ function App() {
               * setelah /detail masukan karakter atau angka bebas "/detail/123ufyugyy"
               */}
             <Route path="detail/:idProduct" element={<ProductDetail />} />
+          </Route>
+          <Route path="admin">
+            <Route index element={<Navigate to={"/admin/user"} />} />
+            <Route path="user" element={<DataUser />} />
+            <Route path="user/create" element={<AddUser />} />
+            <Route path="user/edit/:userId" element={<EditUser />} />
           </Route>
         </Routes>
       </BrowserRouter>
